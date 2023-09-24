@@ -1,7 +1,7 @@
 import { DisplayWeather } from '../../utils/types';
 import { Stack, Typography } from '@mui/material';
 import { StyledMainPaper } from './WeatherListComponent.styled';
-import * as dayjs from 'dayjs';
+import dayjs from 'dayjs';
 
 type Props = {
   weather: DisplayWeather;
