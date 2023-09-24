@@ -1,4 +1,3 @@
-import React from 'react';
 import { Weather } from '../../utils/types';
 import WeatherListComponent from '../WeatherListComponent/WeatherListComponent';
 import { Stack } from '@mui/material';

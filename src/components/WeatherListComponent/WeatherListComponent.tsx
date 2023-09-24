@@ -1,4 +1,3 @@
-import React from 'react';
 import { DisplayWeather } from '../../utils/types';
 import { Stack, Typography } from '@mui/material';
 import { StyledMainPaper } from './WeatherListComponent.styled';
