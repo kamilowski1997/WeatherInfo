@@ -1,9 +1,10 @@
-import { Button, CircularProgress, Stack, TextField } from '@mui/material';
+import { Button, CircularProgress, Stack } from '@mui/material';
 import React, { useState } from 'react';
 import { enCommon } from '../../consts/locales/en';
 import { Weather } from '../../utils/types';
 import GeolocationAPIService from '../../services/HTTPService/GeolocationAPIService';
 import WeatherAPIService from '../../services/HTTPService/WeatherAPIService';
+import { StyledTextField } from './CheckCurrentWeatherForm.styled';
 
 type Props = {
   setWeatherList: React.Dispatch<React.SetStateAction<Weather[]>>;
@@ -42,7 +43,10 @@ const CheckCurrentWeatherForm = ({ setWeatherList }: Props) => {
           temperature: cityWeatherRes.data.current_weather.temperature,
         };
 
-        setWeatherList((current) => [cityWeather, ...current]);
+        setWeatherList((current) => {
+          localStorage.setItem('weatherList', JSON.stringify([cityWeather, ...current]));
+          return [cityWeather, ...current];
+        });
       }
     }
 
@@ -53,7 +57,7 @@ const CheckCurrentWeatherForm = ({ setWeatherList }: Props) => {
     <Stack>
       <form onSubmit={onSubmit}>
         <Stack direction="row" spacing={1}>
-          <TextField
+          <StyledTextField
             required
             label={enCommon.CheckCurrentWeatherForm.CityName}
             value={cityName}

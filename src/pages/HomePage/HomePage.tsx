@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Typography } from '@mui/material';
 import { StyledMainStack } from './HomePage.styled';
 import CheckCurrentWeatherForm from '../../components/CheckCurrentWeatherForm/CheckCurrentWeatherForm';
@@ -8,6 +8,11 @@ import WeatherList from '../../components/WeatherList/WeatherList';
 
 const HomePage = () => {
   const [weatherList, setWeatherList] = useState<Weather[]>([]);
+
+  useEffect(() => {
+    const localWeatherList = localStorage.getItem('weatherList');
+    localWeatherList && setWeatherList(JSON.parse(localWeatherList));
+  }, []);
 
   return (
     <Container>
