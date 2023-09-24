@@ -2,6 +2,7 @@
   "HomeHeaderText": "WeatherInfo",
   "AboutWeatherCheckForm": "You can check current temperature in your city by typing name of your city bellow and clicking submit button.",
   "CheckCurrentWeatherForm": {
-    "CityName": "City name"
+    "CityName": "City name",
+    "errorMessage": "There was an error. Try again."
   }
 }
