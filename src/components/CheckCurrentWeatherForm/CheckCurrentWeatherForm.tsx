@@ -24,7 +24,7 @@ const CheckCurrentWeatherForm = ({ setWeatherList }: Props) => {
 
     setLoading(true);
     try {
-      const cityGeolocationRes = await GeolocationAPIService.getCityGeolocation(cityName);
+      const cityGeolocationRes = await GeolocationAPIService.getCityGeolocation(cityName.trim());
 
       if (cityGeolocationRes.data?.results?.length) {
         const cityGeolocation = {
